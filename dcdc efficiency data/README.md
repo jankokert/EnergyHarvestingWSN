@@ -16,8 +16,8 @@ The filenames follow this scheme
 ## Example
     [2V1,3V6,5V5]_eff___1V8_Iout
 
-**Vin**: List of voltages: 2.1V, 3.6V and 5.5V
-**Iin:** Not visible in the graph and must be calculated from the efficiency
-**Vout:** 1.8V
+**Vin:** List of voltages: 2.1V, 3.6V and 5.5V  
+**Iin:** Not visible in the graph and must be calculated from the efficiency  
+**Vout:** 1.8V  
 **Iout:** Is swept (x-axis to the left)
 
