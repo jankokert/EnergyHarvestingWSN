@@ -1,0 +1,7 @@
+*.pyc
+dcdc efficiency data/BQ25570boost/img/bq25570.pdf
+dcdc efficiency data/BQ25570boost/img/Vin_100uA___[2V,3V,5V5]_eff.tar
+dcdc efficiency data/BQ25570boost/img/1V0_Iin___[2V,3V5V5]_eff.tar
+dcdc efficiency data/BQ25570boost/img/0V2_Iin___[2V,3V5V5]_eff.tar
+dcdc efficiency data/ADP5090/ADP5090.pdf
+dcdc efficiency data/TPS62736/tps62736.pdf
