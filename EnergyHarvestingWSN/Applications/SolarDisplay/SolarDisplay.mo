@@ -23,6 +23,7 @@ model SolarDisplay
     Placement(visible = true, transformation(extent = {{40, -10}, {60, 10}}, rotation = 0)));
   Utilities.IdealDiode idealDiode(Goff = 0, Ron = 0) annotation(
     Placement(visible = true, transformation(origin = {30, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+
 equation
   connect(dcdc.n, ground2.p) annotation(
     Line(points = {{0, 4}, {0, 4}, {0, -20}, {0, -20}}, color = {0, 0, 255}));
@@ -40,7 +41,7 @@ equation
     Line(points = {{10, 20}, {20, 20}, {20, 20}, {20, 20}}, color = {0, 0, 255}));
   connect(solarIrradiation.irrOutput, solarModule.irradiance) annotation(
     Line(points = {{-68, 0}, {-49, 0}}, color = {0, 0, 127}));
-  connect(solarModule.vMPP, dcdc.mpp) annotation(
+  connect(solarModule.vMPP, dcdc.extMPP) annotation(
     Line(points = {{-32, 0}, {-20, 0}, {-20, 14}, {-10, 14}}, color = {0, 0, 127}));
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}), graphics),

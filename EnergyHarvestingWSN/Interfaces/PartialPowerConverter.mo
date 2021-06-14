@@ -4,8 +4,6 @@ partial model PartialPowerConverter
   extends EnergyHarvestingWSN.Interfaces.ThreePin;
   import SI = Modelica.Units.SI;
 
-  parameter EnergyHarvestingWSN.Records.DCDC.template param annotation(
-    Placement(visible = true, transformation(extent = {{-30, 46}, {-10, 66}}, rotation = 0)));
   parameter SI.Voltage Voutset(start=0) "Settable output voltage";
   parameter SI.Current Ioutset(start=0) "Settable output current";
      
