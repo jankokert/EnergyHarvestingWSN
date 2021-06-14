@@ -1,6 +1,6 @@
 within EnergyHarvestingWSN.PowerConverter.UnitTests;
 
-model S1_ADP5090
+model SolarADP5090
   extends Modelica.Icons.Example;
   import SI = Modelica.Units.SI;
   
@@ -37,7 +37,7 @@ equation
     Line(points = {{0, 20}, {-30, 20}, {-30, 10}}, color = {0, 0, 255}));
   connect(dcdc.pout, battery.p) annotation(
     Line(points = {{20, 20}, {40, 20}, {40, 12}}, color = {0, 0, 255}));
-  connect(solarCell.vMPP, dcdc.mpp) annotation(
+  connect(solarCell.vMPP, dcdc.extMPP) annotation(
     Line(points = {{-22, 0}, {-16, 0}, {-16, 14}, {0, 14}}, color = {0, 0, 127}));
   connect(solarCell.n, ground1.p) annotation(
     Line(points = {{-30, -10}, {-30, -16}}, color = {0, 0, 255}));
@@ -48,4 +48,4 @@ equation
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}), graphics = {Text(origin = {-8, 12}, lineThickness = 1, extent = {{-8, 1.5}, {8, -2}}, textString = "Vmpp", fontName = "Arial"), Text(origin = {-50, 2}, lineThickness = 1, extent = {{-9, 1.5}, {9, -2}}, textString = "irradiance", fontName = "Arial")}),
     experiment(StartTime = 18000, StopTime = 70000, Tolerance = 1e-06, Interval = 100));
-end S1_ADP5090;
+end SolarADP5090;

@@ -3,5 +3,5 @@ DCDC_LT_batt_charge
 DCDC_Test_R
 DCDC_Test_Ri_R
 DCDC_Test_C
-S1_ADP5090
 SimpleSolar
+SolarADP5090
