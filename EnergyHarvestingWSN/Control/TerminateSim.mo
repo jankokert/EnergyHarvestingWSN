@@ -8,7 +8,7 @@ block TerminateSim
 
 algorithm
   if u then
-    terminate("automatic terminated");
+    terminate("Simulation terminated automatically");
     y := time;
   end if;
   

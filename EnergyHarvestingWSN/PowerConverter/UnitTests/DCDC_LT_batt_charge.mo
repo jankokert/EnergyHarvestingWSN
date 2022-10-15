@@ -8,7 +8,7 @@ model DCDC_LT_batt_charge
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin={-40,20})));
   EnergyHarvestingWSN.EnergyStorages.Battery battery(cellParam=EnergyHarvestingWSN.Records.Batteries.WBLYP40(), SOCini = 0.1) annotation(
     Placement(transformation(extent={{30,12},{50,32}})));
-  EnergyHarvestingWSN.PowerConverter.DCDC LT3652(param=EnergyHarvestingWSN.Records.DCDC.LT3652()) annotation(
+  EnergyHarvestingWSN.PowerConverter.DCDC LT3652(Voutset = 3.6, param = EnergyHarvestingWSN.Records.DCDC.LT3652()) annotation(
     Placement(transformation(extent={{-20,30},{0,50}})));
   EnergyHarvestingWSN.Utilities.Resistor wires(R=0.02) annotation(
     Placement(transformation(extent={{10,36},{30,56}})));

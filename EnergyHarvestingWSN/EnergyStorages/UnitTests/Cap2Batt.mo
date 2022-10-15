@@ -47,7 +47,7 @@ equation
   //  sw1.control = false; isWorking;
   sw1.control = time > 1200;
 
-  connect(store.pin_n, ground.p) annotation(
+  connect(store.n, ground.p) annotation(
     Line(points = {{40,-10},{40,-70}}, color = {0,0,255}, smooth = Smooth.None));
   connect(constantVoltage.n, ground.p) annotation(
     Line(points = {{-60,-12},{-60,-60},{40,-60},{40,-70}}, color = {0,0,255}, smooth = Smooth.None));
@@ -57,7 +57,7 @@ equation
     Line(points = {{-40,20},{-60,20},{-60,8}}, color = {0,0,255}, smooth = Smooth.None));
   connect(sw1.p, cap.p) annotation(
     Line(points = {{0,-10},{0,-20}}, color = {0,0,255}, smooth = Smooth.None));
-  connect(sw1.n2, store.pin_p) annotation(
+  connect(sw1.n2, store.p) annotation(
     Line(points = {{0,10},{0,20},{40,20},{40,10}}, color = {0,0,255}, smooth = Smooth.None));
   connect(sw1.n1, r1.n) annotation(
     Line(points = {{-5,10},{-10,10},{-10,20},{-20,20}}, color = {0,0,255}, smooth = Smooth.None));

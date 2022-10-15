@@ -4,10 +4,9 @@ record eneloopAA "eneloop NiMH AA cell with 2.0 Ah, 70% remaining charge after 5
   extends EnergyHarvestingWSN.Records.Batteries.template(
     C0 = from_Ah(2),
     R0 = 0.01, //*
-    Rd = 0.02, //*
-    Cd = 1.0,  //*
+    Rd = 0.02, // only for RC-model
+    Cd = 1.0,  // only for RC-model
     E0 = 1.303614,
-    Elin = 0.04, //*
     Epol = 0.012503,    
     Av = 0.175,
     Bv = 0.001667

@@ -5,9 +5,9 @@ model Battery2
   extends EnergyHarvestingWSN.Icons.Battery;
   import SI = Modelica.Units.SI;
   
-  Modelica.Electrical.Analog.Interfaces.NegativePin pin_n "Negative pin" annotation(
+  Modelica.Electrical.Analog.Interfaces.NegativePin n "Negative pin" annotation(
     Placement(transformation(extent = {{-10, -110}, {10, -90}}, rotation = 0)));
-  Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation(
+  Modelica.Electrical.Analog.Interfaces.PositivePin p "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation(
     Placement(transformation(extent = {{-10, 90}, {10, 110}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.SignalVoltage Voc annotation(
     Placement(transformation(origin = {0, -60}, extent = {{-10, 10}, {10, -10}}, rotation = 270)));
@@ -23,7 +23,7 @@ model Battery2
   parameter Records.Batteries.template cellParam annotation(
     choicesAllMatching = true, Placement(transformation(extent = {{-100.0, 80.0}, {-80.0, 100.0}}, origin = {0.0, 0.0}, rotation = 0), visible = true));
   parameter Real SOCini(start = 0.5) "Initial state of charge" annotation(Dialog(group = "Initialization"));
-  parameter Modelica.SIunits.Temperature Toperational = 25 + 273.15 "Operational Temperature";
+  parameter SI.Temperature Toperational = 25 + 273.15 "Operational Temperature";
   parameter Real k1(start = 27);
   parameter Real k2(start = 1.00);
   parameter Real k3(start = 380);
@@ -67,15 +67,15 @@ equation
   //+ (cellParam.Rirt - cellParam.Rel) * exp(-cellParam.Br * (Toperational - cellParam.Trt));
   isCriticalCharging = SOC < 0.05 or SOC > 0.95;
 
-  connect(Cd.p, pin_p) annotation(
+  connect(Cd.p, p) annotation(
     Line(points = {{-40,60},{-40,80},{0,80},{0,100}}, color = {0,0,255}, smooth = Smooth.None));
-  connect(Rd.p, pin_p) annotation(
+  connect(Rd.p, p) annotation(
     Line(points = {{0,60},{0,100}}, color = {0,0,255}, smooth = Smooth.None));
-  connect(RselfDis.p, pin_p) annotation(
+  connect(RselfDis.p, p) annotation(
     Line(points = {{50,40},{50,80},{0,80},{0,100}}, color = {0,0,255}, smooth = Smooth.None));
   connect(RselfDis.n, Voc.n) annotation(
     Line(points = {{50,20},{50,-84},{0,-84},{0,-70}}, color = {0,0,255}, smooth = Smooth.None));
-  connect(Voc.n, pin_n) annotation(
+  connect(Voc.n, n) annotation(
     Line(points = {{0,-70},{0,-100}}, color = {0,0,255}, smooth = Smooth.None));
   connect(R0.n, Voc.p) annotation(
     Line(points = {{0,-20},{0,-50}}, color = {0,0,255}, smooth = Smooth.None));

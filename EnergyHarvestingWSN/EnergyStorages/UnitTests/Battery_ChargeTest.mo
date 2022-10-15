@@ -2,19 +2,19 @@ within EnergyHarvestingWSN.EnergyStorages.UnitTests;
 model Battery_ChargeTest
   extends Modelica.Icons.Example;
   
-  EnergyHarvestingWSN.EnergyStorages.Battery2 batt1(cellParam = EnergyHarvestingWSN.Records.Batteries.eneloopAA(), SOCini=0.5) annotation(
+  EnergyHarvestingWSN.EnergyStorages.Battery batt1( SOCini= 0.1,cellParam = EnergyHarvestingWSN.Records.Batteries.eneloopAA()) annotation(
     Placement(visible=true, transformation(origin = {0,0}, extent = {{-10,-10},{10,10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.ConstantCurrent constantCurrent(I=2) annotation(
     Placement(transformation(extent = {{-10,-10},{10,10}}, rotation = 90, origin = {-40,0})));
-  Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
+  EnergyHarvestingWSN.Utilities.Ground ground1 annotation(
     Placement(visible=true, transformation(origin={0,-40}, extent={{-10.0,-10.0},{10.0,10.0}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Ground ground2 annotation(
+  EnergyHarvestingWSN.Utilities.Ground ground2 annotation(
     Placement(visible=true, transformation(origin={-40,-40}, extent={{-10.0,-10.0},{10.0,10.0}}, rotation=0)));
 
 equation
-  connect(ground1.p,batt1.pin_n) annotation(
+  connect(ground1.p,batt1.n) annotation(
     Line(points = {{0,-30},{0,-10}}, color = {0,0,255}, smooth = Smooth.None));
-  connect(constantCurrent.n, batt1.pin_p) annotation(
+  connect(constantCurrent.n, batt1.p) annotation(
    Line(points = {{-40,10},{-40,20},{0,20},{0,10}}, color = {0,0,255}, smooth = Smooth.None));
   connect(ground2.p, constantCurrent.p) annotation(
     Line(points = {{-40,-30},{-40,-10}}, color = {0,0,255}, smooth = Smooth.None));

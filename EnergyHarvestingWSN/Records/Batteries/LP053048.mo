@@ -9,6 +9,7 @@ record LP053048 "BiPower 760 mAh Li-Ion rechargable battery"
     Trt = 298.15,
     Av = 0.405,
     Bv = 0.002193,
+    // self dis
     E0 = 3.813537,
     Epol = 0.02187,
     SDan = 0.15,
