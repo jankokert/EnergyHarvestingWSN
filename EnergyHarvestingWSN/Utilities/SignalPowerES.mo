@@ -1,6 +1,7 @@
 within EnergyHarvestingWSN.Utilities;
 model SignalPowerES "Signal power discharging device"
   extends EnergyHarvestingWSN.Icons.Sink;
+  
   Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent annotation(Placement(transformation(origin = {20,0}, extent = {{-10,10},{10,-10}}, rotation = 270)));
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation(Placement(transformation(extent = {{-10,90},{10,110}}, rotation = 0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation(Placement(transformation(extent = {{-10,-110},{10,-90}}, rotation = 0)));
@@ -9,7 +10,8 @@ model SignalPowerES "Signal power discharging device"
   Modelica.Blocks.Interfaces.RealInput power annotation(Placement(transformation(extent = {{-100,-10},{-80,10}}, rotation = 0)));
   parameter Modelica.SIunits.Time T = 1 "Controller time constant";
   parameter Modelica.SIunits.Current Imax "Upper current limit of controller";
-  EnergyHarvestingWSN.Utilities.LimitedIntegralController limitedController(outMax = Imax, T = T) annotation(Placement(transformation(extent = {{-60,-10},{-40,10}})));
+  EnergyHarvestingWSN.Utilities.LimI_Controller limitedController(outMax = Imax, T = T) annotation(Placement(transformation(extent = {{-60,-10},{-40,10}})));
+
 equation
   connect(signalCurrent.p,pin_p) annotation(Line(points = {{20,10},{20,100},{0,100}}, color = {0,0,255}));
   connect(signalCurrent.n,pin_n) annotation(Line(points = {{20,-10},{20,-100},{0,-100}}, color = {0,0,255}));

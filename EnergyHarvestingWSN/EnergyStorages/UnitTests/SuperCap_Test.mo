@@ -2,7 +2,7 @@ within EnergyHarvestingWSN.EnergyStorages.UnitTests;
 
 model SuperCap_Test
   extends Modelica.Icons.Example;
-  import SI = Modelica.SIunits;
+  import SI = Modelica.Units.SI;
 
   parameter SI.Time tcharge = 50 "charge duration";
   parameter SI.Time tdischarge = 50 "discharge duration";

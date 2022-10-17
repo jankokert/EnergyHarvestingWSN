@@ -40,7 +40,7 @@ initial equation
   Q = max(0.001*C, SOCini * C);
 
 equation
-  v = pin_p.v - pin_n.v;
+  v = p.v - n.v;
   Icell = -Voc.i;
   der(Qabs) = abs(Icell);
   SOC = Q / C;

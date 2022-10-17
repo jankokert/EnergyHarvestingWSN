@@ -12,7 +12,6 @@ LimP
 LimPI
 PI_Controller
 VariableConductor
-VariableLimConductor
 TafelSlope
 Diffusion
 Avg

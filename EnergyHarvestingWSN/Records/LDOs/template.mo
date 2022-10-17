@@ -4,8 +4,8 @@ record template
   import SI = Modelica.Units.SI;
   
   parameter String typeName = "Generic";
-  parameter SI.Voltage VoutSet "Output voltage setting";
-  parameter SI.Current Ilimit "Output current limit";
+  parameter SI.Voltage Vsetmax "Output voltage setting";
+  parameter SI.Current Isetmax "Output current limit";
   parameter SI.Resistance Ron "On resistance(correlates to the voltage drop)";
   parameter SI.Resistance Rleak "Input leakage resistor (correlates to Iq at given Vin)";
   

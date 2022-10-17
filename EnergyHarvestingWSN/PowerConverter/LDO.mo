@@ -21,7 +21,7 @@ algorithm
 equation
   connect(controller.y, Gpass.G) annotation(
     Line(points = {{12, 0}, {30, 0}, {30, 50}, {30, 50}}, color = {0, 0, 127}));
-  controller.u = param.VoutSet - Vout;  // this order (set-actual) is important!
+  controller.u = param.Vsetmax - Vout;  // this order (set-actual) is important!
 
   //Old stuff: Current limit not yet successfully implemented
   //GiLim = Type.Ilimit/max(0.1, Gpass.v);  // d.h. gilt erst ab 0.1V
