@@ -10,11 +10,6 @@ partial model PartialBattery "A prototype of a battery"
   parameter Real SOCini = 1 "Initial state of charge" annotation(
     Dialog(group = "Initialization"));
   
-  // "inner" prefix will provide these varibale for classes inside this model
-  //inner Real SOC;
-  inner SI.Current Icell;
-  inner SI.ElectricCharge C;
-
 equation
   
   annotation(

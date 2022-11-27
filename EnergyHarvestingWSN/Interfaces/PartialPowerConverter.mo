@@ -10,7 +10,7 @@ partial model PartialPowerConverter
   SI.Power PWRout, PWRin;
   SI.Efficiency effCalc;
 
-  // "inner" prefix will provide these varibale for classes inside this model
+  // the "inner" prefix provides the following variables for blocks within this model
   inner SI.Voltage Vin(start=0);
   inner SI.Voltage Vout(start=0);
   inner SI.Current Iin, Iout;

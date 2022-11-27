@@ -3,10 +3,10 @@ model SoC
   extends EnergyHarvestingWSN.Icons.Block;
   extends EnergyHarvestingWSN.Icons.BottomLabel;
   import SI = Modelica.Units.SI;
-  
+     
   Modelica.Blocks.Interfaces.RealInput Q(unit="C") annotation(
       Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 0},extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealOutput SoC(unit = "C") annotation(
+  Modelica.Blocks.Interfaces.RealOutput SoC() annotation(
     Placement(visible = true, transformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
   outer Real C;
