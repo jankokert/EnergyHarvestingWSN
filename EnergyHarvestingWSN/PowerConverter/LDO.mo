@@ -1,6 +1,6 @@
 within EnergyHarvestingWSN.PowerConverter;
 model LDO "Low dropout (LDO) voltage regulator"
-  extends EnergyHarvestingWSN.Interfaces.PartialPowerConverter;
+  extends EnergyHarvestingWSN.Interfaces.ThreePin;
   extends EnergyHarvestingWSN.Icons.LDO;  
 
   parameter EnergyHarvestingWSN.Records.LDOs.template param "Select one LDO type" annotation(
@@ -12,11 +12,6 @@ model LDO "Low dropout (LDO) voltage regulator"
     Placement(visible = true, transformation(extent = {{20, 70}, {40, 50}}, rotation = 0)));
   EnergyHarvestingWSN.Utilities.LimP controller(k = 100, yMax = 1/param.Ron, yMin = 0) annotation(
     Placement(visible = true, transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-
-algorithm
-  when initial() then
-    isOn := true;
-  end when;
   
 equation
   connect(controller.y, Gpass.G) annotation(

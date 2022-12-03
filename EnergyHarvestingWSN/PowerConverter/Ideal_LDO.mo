@@ -1,16 +1,12 @@
 within EnergyHarvestingWSN.PowerConverter;
 model Ideal_LDO
-  extends EnergyHarvestingWSN.Interfaces.PartialPowerConverter;
+  extends EnergyHarvestingWSN.Interfaces.ThreePin;
   extends EnergyHarvestingWSN.Icons.LDO;  
   import SI = Modelica.Units.SI;
   
   parameter SI.Voltage VoutSet;
   
-algorithm
-  when initial() then
-    isOn := true;
-  end when;
-  
+ 
 equation
   Vout = min(VoutSet, max(0, Vin));
   Iout = Iin;

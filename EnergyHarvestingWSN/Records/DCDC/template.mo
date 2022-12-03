@@ -7,7 +7,7 @@ record template
   parameter SI.Voltage Vmin "Minimum input voltage after cold start";
   parameter SI.Voltage Vsetmax "Max of settable output voltage";
   parameter SI.Current Isetmax = 1 "Max of settable output current";
-  //parameter Boolean isVOutPowered "Controller circuit is additionally powerered from Vout";
+  parameter Boolean isVOutPowered "Controller startup circuit is additionally powerered from Vout";
 
   parameter Real k1 "Linear Iin dependency";
   parameter Real k2 "Iin*sqrt(Vin) dependency";
