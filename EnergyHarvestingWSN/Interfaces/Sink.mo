@@ -4,10 +4,10 @@ partial model Sink
   extends EnergyHarvestingWSN.Interfaces.TwoPin;
   import SI = Modelica.Units.SI;
     
-  SI.Current iin "Current flowing from pin p into the sink";
+  SI.Current Iin "Current flowing from pin p into the sink";
   
 equation
   0 = p.i + n.i;
-  iin = p.i;
+  Iin = p.i;
 
 end Sink;

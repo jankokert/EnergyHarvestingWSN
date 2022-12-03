@@ -1,9 +1,18 @@
 within EnergyHarvestingWSN.EnergyStorages;
 
 model Battery "Battery cell model with a static internal impedance and self discharge"
-  extends EnergyHarvestingWSN.EnergyStorages.Components.PartialBattery;
+  extends EnergyHarvestingWSN.Interfaces.TwoPin;
+  extends EnergyHarvestingWSN.Icons.Battery;
+  
   import SI = Modelica.Units.SI;
+  parameter EnergyHarvestingWSN.Records.Batteries.template cellParam annotation(
+    choicesAllMatching = true, Placement(visible = true, transformation(origin = {-80, 84}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
+  parameter Real SOCini = 1 "Initial state of charge" annotation(
+    Dialog(group = "Initialization"));
+
   Boolean isCriticalCharging;
+  inner SI.ElectricCharge C;
+  inner SI.Current Icell;
   
   Modelica.Electrical.Analog.Sources.SignalVoltage Voc annotation(
     Placement(visible = true, transformation(origin = {0, -20}, extent = {{-10, 10}, {10, -10}}, rotation = 270)));
@@ -18,16 +27,12 @@ model Battery "Battery cell model with a static internal impedance and self disc
   EnergyHarvestingWSN.EnergyStorages.Components.Voc shepherd(cellParam = cellParam) annotation(
     Placement(visible = true, transformation(origin = {-40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
-// the "inner" prefix provides the following variables for blocks within this model
-  inner SI.ElectricCharge C;
-  inner SI.Current Icell;
-
 equation
   Icell = Voc.i;
   C = cellParam.C0;
-//der(Qabs) = abs(Icell);
-// - cellParam.kageQ * max(Qabs / (2 * cellParam.C0) - cellParam.nage, 0);
-//cellParam.SDan * cellParam.C0 / (365 * 24 * 3600);
+  //der(Qabs) = abs(Icell);
+  // - cellParam.kageQ * max(Qabs / (2 * cellParam.C0) - cellParam.nage, 0);
+  //cellParam.SDan * cellParam.C0 / (365 * 24 * 3600);
   isCriticalCharging = soc.SoC < 0.05 or soc.SoC > 0.95;
   
   connect(Rint.p, p) annotation(
@@ -50,6 +55,7 @@ equation
     Line(points = {{0, -30}, {0, -40}, {100, -40}, {100, -100}, {0, -100}}, color = {0, 0, 255}));
   connect(RselfDis.n, n) annotation(
     Line(points = {{50, -10}, {50, -40}, {100, -40}, {100, -100}, {0, -100}}, color = {0, 0, 255}));
+
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = false, initialScale = 0.1), graphics = {Rectangle(origin = {80, 40}, lineColor = {0, 0, 255}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, lineThickness = 1, extent = {{-2, 2}, {2, -2}}), Rectangle(origin = {80, -40}, lineColor = {0, 0, 255}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, lineThickness = 1, extent = {{-2, 2}, {2, -2}}), Text(origin = {11, 25}, textColor = {0, 136, 0}, extent = {{-7, -3}, {7, 3}}, textString = "Icell", fontSize = 12), Line(origin = {4.75753, 26.9705}, points = {{0, -7}, {0, 7}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Text(origin = {-20, 14}, textColor = {0, 0, 127}, extent = {{-7, -3}, {7, 3}}, textString = "Q", fontSize = 12), Text(origin = {-20, 44}, textColor = {0, 0, 127}, extent = {{-7, -3}, {7, 3}}, textString = "SoC", fontSize = 12)}),
     Icon(coordinateSystem(initialScale = 0.1), graphics = {Line(points = {{-54, -100}, {54, -100}, {48, -100}}), Text(origin = {130, -90}, textColor = {255, 255, 255}, extent = {{-30, 10}, {-10, -10}}, textString = "%cellParam", fontSize = 1)}));

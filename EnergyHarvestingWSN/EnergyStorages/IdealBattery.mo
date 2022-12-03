@@ -1,6 +1,6 @@
 within EnergyHarvestingWSN.EnergyStorages;
 model IdealBattery "Ideal battery with constant voltage and SoC"
-  extends EnergyHarvestingWSN.EnergyStorages.Components.PartialBattery;
+  extends EnergyHarvestingWSN.Interfaces.TwoPin;
   extends EnergyHarvestingWSN.Interfaces.Source;  // added, as there is no ECD
   import SI = Modelica.Units.SI;
 

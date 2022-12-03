@@ -16,6 +16,7 @@ model SolarCellFOCV
 
 equation
   Pirr = irradiance * A;
+  pilotCell.Vout = fraction.u;
   connect(irradiance, solarCell.irradiance) annotation(
     Line(points = {{-100, 0}, {-8, 0}}, color = {0, 0, 127}));
   connect(solarCell.n, n) annotation(
@@ -26,10 +27,10 @@ equation
     Line(points = {{0, 10}, {0, 100}}, color = {0, 0, 255}));
   connect(pilotCell.irradiance, irradiance) annotation(
     Line(points = {{31, -30}, {-50, -30}, {-50, 0}, {-100, 0}}, color = {0, 0, 127}));
-  connect(pilotCell.p.v, fraction.u) annotation(
-    Line(points = {{40, -20}, {40, 0}, {58, 0}}, color = {0, 0, 255}));
   connect(fraction.y, vMPP) annotation(
     Line(points = {{72, 0}, {110, 0}}, color = {0, 0, 127}));
+
 annotation(
-    Icon(graphics = {Rectangle(origin = {35, 0}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-35, 25}, {35, -25}}), Text(origin = {33, 0}, extent = {{-42, 17}, {42, -17}}, textString = "V   ·k", fontName = "Arial", textStyle = {TextStyle.Italic}), Text(origin = {31, -6}, extent = {{-27, 2}, {27, -2}}, textString = "OC", fontName = "Arial")}));
+    Icon(graphics = {Rectangle(origin = {35, 0}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-35, 25}, {35, -25}}), Text(origin = {33, 0}, extent = {{-42, 17}, {42, -17}}, textString = "V   ·k", fontName = "Arial", textStyle = {TextStyle.Italic}), Text(origin = {31, -6}, extent = {{-27, 2}, {27, -2}}, textString = "OC", fontName = "Arial")}),
+    Diagram(graphics = {Line(origin = {40, 0}, points = {{18, 0}, {0, 0}, {0, -15}}, color = {0, 0, 127})}));
 end SolarCellFOCV;

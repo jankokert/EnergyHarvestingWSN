@@ -8,7 +8,7 @@ model PartialSolar
   parameter EnergyHarvestingWSN.Records.SolarCells.template cellparam annotation(
     __Dymola_choicesAllMatching = true, Placement(transformation(extent = {{-100, 80}, {-80, 100}})));
   parameter SI.Area A(final displayUnit = "cm2") = 0.01 "Active area of one single cell (default = 1dm²)";
-  parameter Real Jsc(final unit = "A/W/m2") = 0.37 "Short-circuit current per area and one sun";
+  parameter Real Jsc(final unit = "A/W/m2)") = 0.37 "Short-circuit current per area and one sun";
 
   Modelica.Blocks.Interfaces.RealInput irradiance(final quantity = "Irradiance", final unit = "W/m2") "Input irradiance" annotation(
     Placement(visible = true, transformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-90, 0}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
@@ -20,7 +20,7 @@ model PartialSolar
 
 equation
   iout = -p.i;
-  Pout = v * iout;
+  Pout = Vout * iout;
   
   // Modelica devides Pout/Pin even if = false!
   eff = if Pirr > 0 then Pout / (Pirr + 1E-9) else 0;

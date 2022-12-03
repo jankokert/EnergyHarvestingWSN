@@ -1,6 +1,6 @@
 within EnergyHarvestingWSN.Utilities;
 model VarCap "variable capacitor"
-  extends EnergyHarvestingWSN.Interfaces.Sink(v(start=0));
+  extends EnergyHarvestingWSN.Interfaces.Sink(Vout(start=0));
   import SI = Modelica.Units.SI;
   
   parameter SI.Capacitance C0(start=1) "Capacitance";
@@ -8,8 +8,8 @@ model VarCap "variable capacitor"
   SI.Capacitance C;
 
 equation
-  C = C0 + Cv*v;
-  iin = C * der(v);
+  C = C0 + Cv * Vout;
+  Iin = C * der(Vout);
   
   annotation (
     Documentation(info="<html>

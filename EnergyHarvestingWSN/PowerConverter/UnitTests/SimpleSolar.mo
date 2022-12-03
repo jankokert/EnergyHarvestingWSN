@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.PowerConverter.UnitTests;
 model SimpleSolar
   extends Modelica.Icons.Example;
-  import SI = Modelica.SIunits;
+  import SI = Modelica.Units.SI;
 
   EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell solarCell(cellparam=EnergyHarvestingWSN.Records.SolarCells.StandardSi(), A = 0.001) annotation(
     Placement(visible = true, transformation(extent = {{-30, -10}, {-10, 10}}, rotation = 0)));
@@ -23,7 +23,7 @@ equation
     Line(points = {{-20, -10}, {-20, -15}, {-20, -15}, {-20, -20}, {20, -20}, {20, -30}, {20, -30}, {20, -40}}, color = {0, 0, 255}));
   connect(integerConstant1.y, solarCell.irradiance) annotation(
     Line(points = {{-43.4, 0}, {-29.4, 0}}, color = {0, 0, 127}));
-  Estore = 1/2*store.C* (store.v)^2;
+  Estore = 1/2 * store.C * (store.Vout)^2;
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics));
 end SimpleSolar;

@@ -12,7 +12,7 @@ model DCDC_Test_C
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin = {-60, 22})));
   EnergyHarvestingWSN.PowerConverter.DCDC dcdc(TFB = 1e-5, fixedMPP = 0.5, kFB = 1e-1, param = EnergyHarvestingWSN.Records.DCDC.ideal(), useExternalMPP = false) annotation(
     Placement(transformation(extent = {{-10, 24}, {10, 44}})));
-  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap(capParam = EnergyHarvestingWSN.Records.SuperCaps.CapXX_0F4(), vInit = 5.4) annotation(
+  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap(capParam = EnergyHarvestingWSN.Records.SuperCaps.CapXX_0F4(), Vinit = 5.4) annotation(
     Placement(visible = true, transformation(origin = {40, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   EnergyHarvestingWSN.Utilities.Resistor resistor(R = 100) annotation(
     Placement(visible = true, transformation(origin = {80, 20}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));

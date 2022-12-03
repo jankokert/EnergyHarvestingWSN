@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.Utilities;
 model IdealSPST "An ideal Single Pole Single Throw toggle switch"
 
-  parameter Modelica.SIunits.Resistance Roff(final min = 0) = 1.E+9 "Open resistance to avoid singularities";
+  parameter Modelica.Units.SI.Resistance Roff(final min = 0) = 1.E+9 "Open resistance to avoid singularities";
   Modelica.Electrical.Analog.Interfaces.PositivePin p annotation(
     Placement(transformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin n annotation(

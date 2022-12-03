@@ -12,6 +12,7 @@ model DCDC_LT_batt_charge
     Placement(transformation(extent={{-20,30},{0,50}})));
   EnergyHarvestingWSN.Utilities.Resistor wires(R=0.02) annotation(
     Placement(transformation(extent={{10,36},{30,56}})));
+
 equation
   connect(battery.n, ground.p) annotation(
     Line(points = {{40, 12}, {40, 0}}, color = {0, 0, 255}, smooth = Smooth.None));
@@ -25,6 +26,7 @@ equation
     Line(points = {{10, 46}, {0, 46}}, color = {0, 0, 255}, smooth = Smooth.None));
   connect(wires.n, battery.p) annotation(
     Line(points = {{30, 46}, {40, 46}, {40, 32}}, color = {0, 0, 255}, smooth = Smooth.None));
+
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}), graphics),
     experiment(StartTime = 0, StopTime = 200000, Tolerance = 1e-06, Interval = 40));

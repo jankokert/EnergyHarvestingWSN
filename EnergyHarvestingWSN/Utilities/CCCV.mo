@@ -14,10 +14,10 @@ model CCCV
   Real u1, u2;
   
 equation
-  u1 = Vmax - v;
-  u2 = Imax - iout;
+  u1 = Vmax - Vout;
+  u2 = Imax - Iout;
   pi.u = min(u1, u2);
-  pi.y = iout;
+  pi.y = Iout;
 
   annotation(
     Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));

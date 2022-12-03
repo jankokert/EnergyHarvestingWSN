@@ -46,9 +46,9 @@ equation
     ;
   
   G = ireal / vcalc;
-  iin = G * v;
+  Iin = G * Vout;
 
-  der(Econs) = v*iin;
+  der(Econs) = Vout * Iin;
      
   annotation(
     defaultComponentName = "task",
