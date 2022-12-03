@@ -1,4 +1,4 @@
-within EnergyHarvestingWSN.Interfaces;
+within EnergyHarvestingWSN.EnergyStorages.Components;
 
 partial model PartialBattery "A prototype of a battery"
   extends EnergyHarvestingWSN.Icons.Battery;

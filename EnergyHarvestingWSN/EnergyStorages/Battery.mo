@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.EnergyStorages;
 
 model Battery "Battery cell model with a static internal impedance and self discharge"
-  extends EnergyHarvestingWSN.Interfaces.PartialBattery;
+  extends EnergyHarvestingWSN.EnergyStorages.Components.PartialBattery;
   import SI = Modelica.Units.SI;
   Boolean isCriticalCharging;
   

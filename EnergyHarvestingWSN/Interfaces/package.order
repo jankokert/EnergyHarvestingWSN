@@ -9,6 +9,5 @@ ConditionalPeriodPort
 TimePort
 ConditionalMPPpin
 PartialPowerConverter
-PartialBattery
 PartialPowerManagement
 PartialSolar
