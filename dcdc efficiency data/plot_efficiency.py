@@ -18,6 +18,10 @@ from BQ25570buck import *
 ltx_Vin = r"$V_\mathrm{in}$"
 ltx_Iin = r"$I_\mathrm{in}$"
 
+#https://stackoverflow.com/questions/17197492/is-there-a-library-function-for-root-mean-square-error-rmse-in-python
+def rmse(predictions, targets):
+    return np.sqrt(((predictions - targets) ** 2).mean())
+
 
 def calc(r, p):
 	# check if Iout is empty and an efficiency sweep is given (e.g. boost converter)
@@ -88,6 +92,7 @@ def plotEffPloss_Vin(ax, row, col, rec, param):
 
 def plotEff_Vin(axis, rec, param, labels):
 	rec = calc(rec, param)
+	print(f"RMSE: { format(rmse(rec.Eff, rec.EffSim)*100, '.3f') }% @Vin-sweep,  Iin = {rec.Iin} ")
 	axis.plot(rec.Vin, rec.Eff*100, label=labels[0])
 	axis.plot(rec.Vin, rec.EffSim*100, label=labels[1])
 	axis.legend()
@@ -109,6 +114,7 @@ def plotEffPloss_Iin(ax, row, col, rec, param):
 
 def plotEff_Iin(axis, rec, param, labels):
 	rec = calc(rec, param)
+	print(f"RMSE: { format(rmse(rec.Eff, rec.EffSim)*100, '.3f') }% @Iin-sweep,  Vin = {rec.Vin} ")
 	axis.semilogx(rec.Iin, rec.Eff*100, label=labels[0])
 	axis.semilogx(rec.Iin, rec.EffSim*100, label=labels[1])
 	axis.legend()
@@ -206,7 +212,7 @@ if VoutM == 5.5:
 	)	
 
 
-export_path = "C:/Git/eh-kit/2006_MDPI-ModeligDCDC/paper/img/"
+export_path = "./"
 plt.rcParams["font.size"] = 14  #12
 #plt.rcParams['figure.figsize'] = [6.0, 4.0]  # [8.0, 6.0]
 plt.rcParams['savefig.dpi'] = 160 # 100
