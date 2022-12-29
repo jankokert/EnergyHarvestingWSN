@@ -18,7 +18,7 @@ initial equation
   Q = SOCini * C;
   
 equation
-  der(Q) = if SoC < 0.001 and Icell < 0 or SoC > 1 and Icell > 0 then 0 else Icell;
+  der(Q) = if Q <= 1e-6 and Icell < 0 or 1 <= SoC and 0 < Icell then 0 else Icell;
   v = 0;  // ideal sensor, no voltage drop
   
   annotation(

@@ -1,8 +1,8 @@
 within EnergyHarvestingWSN.EnergyStorages.UnitTests;
 
 model Battery_discharge
-  extends Modelica.Icons.Example;
-  
+  extends Modelica.Icons.Example;  
+  import SI = Modelica.Units.SI;  
   EnergyHarvestingWSN.Utilities.Ground ground annotation(
     Placement(visible = true, transformation(origin = {0, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   EnergyStorages.Battery battery(cellParam = EnergyHarvestingWSN.Records.Batteries.WBLYP40(), SOCini = 1) annotation(
@@ -10,9 +10,12 @@ model Battery_discharge
   Modelica.Electrical.Analog.Sources.SignalCurrent load annotation(
     Placement(transformation(extent = {{-10, 10}, {10, -10}}, rotation = 270, origin = {40, 20})));
   Real Idis(start = 1) "Charge Stop (SOC)";
+  parameter SI.Voltage Vend = 0 "End-of-discharge voltage" annotation(
+    Dialog(group = "Initialization"));
+  
   
 algorithm
-  when battery.Vout < 3.06 then
+  when battery.Vout < Vend then
     Idis := 0;
   end when;
   
