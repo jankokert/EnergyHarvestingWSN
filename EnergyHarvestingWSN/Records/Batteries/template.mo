@@ -12,6 +12,7 @@ record template
   parameter Real Av = 0.1 "Exp. zone amplitude";
   parameter SI.Time Bv = 1 "Exp. zone time constant";
   parameter SI.Voltage E0 = 1 "No-load voltage";
+  parameter SI.Voltage Elin = 1 "Linear voltage drop of Voc with SoC";
   parameter SI.Voltage Epol = 0 "Polarization voltage";
 
   parameter SI.Resistance RselfDis = 1E6 "Self discharge resistor";

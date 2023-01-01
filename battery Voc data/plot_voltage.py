@@ -24,29 +24,31 @@ ltx_Vout = r"$V_\mathrm{out}$"
 
 
 def calc(r):
-	#lowess = sm.nonparametric.lowess(r.Qout, r.Vout, frac=0.1)
-	#Qout_smooth, Vout_smooth = lowess[:, 1], lowess[:, 0]
-
-	Vout_smooth = savitzky_golay(r.Vout, 9, 3) # window size 51, polynomial order 3
-
-	#dx = np.gradient(Qout_smooth, 1)
-	#dy = np.gradient(Vout_smooth, 1)
+	# for linear term: find the smallest slope m (gradient)
 	dx = np.gradient(r.Qout, 2)
 	dy = np.gradient(r.Vout, 2)
 
-	gradient = savitzky_golay(dy/dx, 9, 3).clip(min=-0.5)
-	lin_i = np.argmax(gradient) # get index with the lowest slope
-	m = gradient[lin_i]
+	gradient = savitzky_golay(dy/dx, 9, 3).clip(min=-0.5)  # window size 9, polynomial order 3
+
+	# get index with the lowest slope
+	lin_i = np.argmax(gradient) 
+	
+	# look 10% left and right of this index
+	m_width = 0.1 
+	m_section = gradient[int(lin_i*(1-m_width)) : int(lin_i*(1+m_width))]
+	m = np.mean(m_section)
+
+	# supporting point for m to build the linear equation
 	Q0 = r.Qout[lin_i]
 	V0 = r.Vout[lin_i]
-	print (m, Q0, V0)
-
 	Vlin = V0 + m*(r.Qout-Q0)
+
+	print (m, Q0, V0)
 
 	return sim(
 		Qout = r.Qout,
 		Vout = r.Vout,
-		Vout_sim = Vlin,      #Vout_smooth,
+		Vout_sim = Vlin,
 		Iout = r.Iout,
 		klin = gradient
 	)

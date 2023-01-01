@@ -11,14 +11,14 @@ model Integrator
     Placement(visible = true, transformation(origin = {0, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 90), iconTransformation(origin = {0, -110}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter Real SOCini "Initial state of charge" annotation(
     Dialog(group = "Initialization"));
-  outer SI.Current Icell;
+  outer SI.Current Icharge;
   outer Real C;
   
 initial equation
   Q = SOCini * C;
   
 equation
-  der(Q) = if Q <= 1e-6 and Icell < 0 or 1 <= SoC and 0 < Icell then 0 else Icell;
+  der(Q) = if Q <= 1e-6 and Icharge < 0 or 1 <= SoC and 0 < Icharge then 0 else Icharge;
   v = 0;  // ideal sensor, no voltage drop
   
   annotation(

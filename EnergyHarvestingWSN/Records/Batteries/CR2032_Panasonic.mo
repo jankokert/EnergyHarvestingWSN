@@ -7,6 +7,7 @@ record CR2032_Panasonic "CR2032 button cell with 250 mAh"
     Rd = 0.02,  // only for RC-model
     Cd = 1.0,   // only for RC-model
     E0 = 3.0,
+    Elin = 0.04,
     Epol = 0.037895,
     Av = 0.01,
     Bv = 0.04386    

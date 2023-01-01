@@ -10,9 +10,10 @@ model Battery "Battery cell model with a static internal impedance and self disc
   parameter Real SOCini = 1 "Initial state of charge" annotation(
     Dialog(group = "Initialization"));
 
+  SI.Current Iout "Current flowing out of the battery";
   Boolean isCriticalCharging;
   inner SI.ElectricCharge C;
-  inner SI.Current Icell;
+  inner SI.Current Icharge;
   
   Modelica.Electrical.Analog.Sources.SignalVoltage Voc annotation(
     Placement(visible = true, transformation(origin = {0, -20}, extent = {{-10, 10}, {10, -10}}, rotation = 270)));
@@ -28,7 +29,8 @@ model Battery "Battery cell model with a static internal impedance and self disc
     Placement(visible = true, transformation(origin = {-40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 equation
-  Icell = Voc.i;
+  Icharge = Voc.i;
+  Iout = -p.i;
   C = cellParam.C0;
   //der(Qabs) = abs(Icell);
   // - cellParam.kageQ * max(Qabs / (2 * cellParam.C0) - cellParam.nage, 0);
@@ -57,6 +59,6 @@ equation
     Line(points = {{50, -10}, {50, -40}, {100, -40}, {100, -100}, {0, -100}}, color = {0, 0, 255}));
 
   annotation(
-    Diagram(coordinateSystem(preserveAspectRatio = false, initialScale = 0.1), graphics = {Rectangle(origin = {85, 40}, lineColor = {0, 0, 255}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, lineThickness = 1, extent = {{-2, 2}, {2, -2}}), Rectangle(origin = {85, -40}, lineColor = {0, 0, 255}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, lineThickness = 1, extent = {{-2, 2}, {2, -2}}), Text(origin = {11, 25}, textColor = {0, 136, 0}, extent = {{-7, -3}, {7, 3}}, textString = "Icell", fontSize = 12), Line(origin = {4.75753, 26.9705}, points = {{0, -7}, {0, 7}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Text(origin = {-20, 14}, textColor = {0, 0, 127}, extent = {{-7, -3}, {7, 3}}, textString = "Q", fontSize = 12), Text(origin = {-20, 44}, textColor = {0, 0, 127}, extent = {{-7, -3}, {7, 3}}, textString = "SoC", fontSize = 12), Text(origin = {70, 50}, textColor = {0, 136, 0}, extent = {{-7, -3}, {7, 3}}, textString = "Iout", fontSize = 12), Line(origin = {69.3, 45}, points = {{-10, 0}, {10, 0}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Line(origin = {85, 0}, points = {{0, -30}, {0, 30}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Text(origin = {77, 0}, textColor = {0, 136, 0}, extent = {{-7, -3}, {7, 3}}, textString = "Vout", fontSize = 12)}),
+    Diagram(coordinateSystem(preserveAspectRatio = false, initialScale = 0.1), graphics = {Rectangle(origin = {85, 40}, lineColor = {0, 0, 255}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, lineThickness = 1, extent = {{-2, 2}, {2, -2}}), Rectangle(origin = {85, -40}, lineColor = {0, 0, 255}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, lineThickness = 1, extent = {{-2, 2}, {2, -2}}), Text(origin = {13, 27}, textColor = {0, 136, 0}, extent = {{-8, -3}, {8, 3}}, textString = "Icharge", fontSize = 12), Line(origin = {4.76, 26.97}, points = {{0, 7}, {0, -7}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Text(origin = {-20, 14}, textColor = {0, 0, 127}, extent = {{-7, -3}, {7, 3}}, textString = "Q", fontSize = 12), Text(origin = {-20, 44}, textColor = {0, 0, 127}, extent = {{-7, -3}, {7, 3}}, textString = "SoC", fontSize = 12), Text(origin = {70, 50}, textColor = {0, 136, 0}, extent = {{-7, -3}, {7, 3}}, textString = "Iout", fontSize = 12), Line(origin = {69.3, 45}, points = {{-10, 0}, {10, 0}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Line(origin = {85, 0}, points = {{0, -30}, {0, 30}}, color = {0, 136, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4), Text(origin = {78, 0}, textColor = {0, 136, 0}, extent = {{-7, -3}, {7, 3}}, textString = "Vout", fontSize = 12)}),
     Icon(coordinateSystem(initialScale = 0.1), graphics = {Line(points = {{-54, -100}, {54, -100}, {48, -100}}), Text(origin = {130, -90}, textColor = {255, 255, 255}, extent = {{-30, 10}, {-10, -10}}, textString = "%cellParam", fontSize = 1)}));
 end Battery;

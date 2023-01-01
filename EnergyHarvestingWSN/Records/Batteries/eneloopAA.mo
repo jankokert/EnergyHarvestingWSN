@@ -7,6 +7,7 @@ record eneloopAA "eneloop NiMH AA cell with 2.0 Ah, 70% remaining charge after 5
     Rd = 0.02, // only for RC-model
     Cd = 1.0,  // only for RC-model
     E0 = 1.303614,
+    Elin = 0.2,
     Epol = 0.012503,    
     Av = 0.175,
     Bv = 0.001667
