@@ -4,18 +4,11 @@ from collections import namedtuple
 record = namedtuple("record", "Vout Qout Iout")
 
 ### eneloop discharge
-data = genfromtxt('./eneloopAA/Discharge_0A2.csv', delimiter=',');
+data = genfromtxt('./eneloopAA/Discharge_0A4.csv', delimiter=',');
 eneloopAA_0A2 = record(
 	Qout = data[:,0],
 	Vout = data[:,1],
-	Iout = 0.2,
-)
-
-data = genfromtxt('./eneloopAA/Discharge_0A5.csv', delimiter=',');
-eneloopAA_0A5 = record(
-	Qout = data[:,0],
-	Vout = data[:,1],
-	Iout = 0.5,
+	Iout = 0.4,
 )
 
 data = genfromtxt('./eneloopAA/Discharge_1A0.csv', delimiter=',');

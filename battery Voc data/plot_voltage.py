@@ -21,6 +21,9 @@ from eneloopAA import *
 ltx_Qout = r"$Q_\mathrm{out}$"
 ltx_Vout = r"$V_\mathrm{out}$"
 
+export_path = "./"
+plt.rcParams["font.size"] = 14  #12
+plt.rcParams['savefig.dpi'] = 160 # 100
 
 
 def calc(r):
@@ -58,7 +61,7 @@ def plotVout_Qout(axis, rec):
 	rec = calc(rec)
 	axis.plot(rec.Qout, rec.Vout, label=f"Iout={rec.Iout}A")
 	axis.plot(rec.Qout, rec.Vout_sim, label=f"smoothed")
-	axis.plot(rec.Qout, rec.klin, label=f"klin")
+	#axis.plot(rec.Qout, rec.klin, label=f"klin")
 	axis.legend()
 	axis.set_xlabel(ltx_Qout + " in Ah")
 	axis.set_ylabel(ltx_Vout + " in V")
@@ -66,17 +69,13 @@ def plotVout_Qout(axis, rec):
 
 fig, ax = plt.subplots(1,1)
 ax.grid()
-#ax.set_xlim([0,2])
-#ax.set_ylim([0.4,1.4])
+ax.set_xlim([0,2])
+ax.set_ylim([1.10,1.4])
 #ax.set_yticks(np.arange(0, 100, 20))
 plotVout_Qout(ax, eneloopAA_0A2)
 #plotVout_Qout(ax, eneloopAA_0A5)
-
-
 	
-#if not converter.endswith("export"):
-#	mng = plt.get_current_fig_manager()
-#	mng.window.wm_geometry("+1920+0")
-#	fig.set_size_inches([18,9.5], forward = True)
-
 plt.show()
+
+fig.tight_layout()
+fig.savefig(export_path + "eneloopAA-Vout.png", bbox_inches="tight", pad_inches = 0.01)
