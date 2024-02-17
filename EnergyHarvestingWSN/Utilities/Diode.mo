@@ -2,12 +2,17 @@ within EnergyHarvestingWSN.Utilities;
 model Diode "Simple diode with exponential behavior and with non-ideality factor"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   import SI = Modelica.Units.SI;
+  import Modelica.Constants.k "Boltzmann's constant, [J/K]";
+  import Modelica.Constants.q "Electron charge, [As]";
   
   parameter SI.Current Ids = 1.e-6 "Saturation current";
   parameter Real nideal = 1 "Non-ideality factor";
-  parameter SI.Voltage Vt = 0.0257 "Voltage equivalent of temperature (kT/q) at 298 K";
+  parameter SI.Temperature T = 298;
+  
+  SI.Voltage Vt "Temperature voltage";
 
 equation
+  Vt = k*T/q;
   i = Ids * (exp(v / (Vt * nideal)) - 1);
   
   annotation(
