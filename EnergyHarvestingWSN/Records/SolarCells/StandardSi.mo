@@ -1,6 +1,7 @@
 within EnergyHarvestingWSN.Records.SolarCells;
 record StandardSi
   extends EnergyHarvestingWSN.Records.SolarCells.template(
+    Jsc = 370,    // = 37 mA / cm²
     Rp = 5000e-4, // = 5 kOhm / cm²
     Rs = 0.5e-4,  // = 0.5 Ohm / cm²
     J01 = 1e-08,  // = 1.0e-12 A / cm²

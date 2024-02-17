@@ -6,10 +6,10 @@ model SolarModule
 
   parameter Integer ns(min = 1) = 1 "Number of serial connected cells";
   parameter Integer np(min = 1) = 1 "Number of parallel connected cells";
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell cell(final cellparam = cellparam, final A = A, final Jsc = Jsc) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell cell(final cellparam = cellparam, final A = A) annotation(
     Placement(visible = true, transformation(extent = {{-70, -10}, {-50, 10}}, rotation = 0)));
   EnergyHarvestingWSN.Utilities.ScaleVI scaleVI(k_V = ns, k_I = np) annotation(
-    Placement(visible = true, transformation(extent = {{-40, -10}, {-20, 10}}, rotation = 0)));
+    Placement(transformation(extent = {{-40, -10}, {-20, 10}})));
 
 equation
   Pirr = irradiance * A * ns * np;

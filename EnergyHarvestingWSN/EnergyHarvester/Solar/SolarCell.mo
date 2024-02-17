@@ -17,10 +17,10 @@ model SolarCell
   EnergyHarvestingWSN.Utilities.Resistor resistorSerial(R = cellparam.Rs / A) annotation(
     Placement(transformation(extent = {{60, 10}, {80, 30}})));
 
-
 equation
-  photoCurrent.i = irradiance * A * Jsc;
+  photoCurrent.i = irradiance * A * cellparam.Jsc / onesun;
   Pirr = irradiance * A;
+  
   connect(resistorSerial.p, photoCurrent.n) annotation(
     Line(points = {{60, 20}, {-40, 20}, {-40, 10}}, color = {0, 0, 255}, smooth = Smooth.None));
   connect(d1_Emitter.p, resistorSerial.p) annotation(
