@@ -3,7 +3,7 @@ model Battery_self_discharge
   extends Modelica.Icons.Example;
   EnergyHarvestingWSN.Utilities.Ground ground annotation(
     Placement(visible = true, transformation(origin={0,-20}, extent={{-10.0,-10.0},{10.0,10.0}}, rotation=0)));
-  EnergyStorages.Battery2 battery(cellParam=EnergyHarvestingWSN.Records.Batteries.WBLYP40(), SOCini=1) annotation(
+  EnergyStorages.Battery battery(cellParam=EnergyHarvestingWSN.Records.Batteries.WBLYP40(), SOCini=1) annotation(
     Placement(transformation(extent={{-10,12},{10,32}})));
 
 equation

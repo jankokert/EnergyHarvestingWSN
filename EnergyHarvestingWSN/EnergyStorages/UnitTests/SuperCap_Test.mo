@@ -7,7 +7,7 @@ model SuperCap_Test
   parameter SI.Time tcharge = 50 "charge duration";
   parameter SI.Time tdischarge = 50 "discharge duration";
   
-  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap(capParam = EnergyHarvestingWSN.Records.SuperCaps.CapXX_0F4(), vInit = 0) annotation(
+  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap(capParam = EnergyHarvestingWSN.Records.SuperCaps.CapXX_0F4(), Vinit = 0) annotation(
     Placement(visible = true, transformation(extent = {{-30, 0}, {-10, 20}}, rotation = 0)));
   EnergyHarvestingWSN.Utilities.CCCV cccv1(Vmax=5, Imax=0.1, T=1E-4) annotation(
     Placement(visible = true, transformation(extent = {{-90, 0}, {-70, 20}}, rotation = 0)));

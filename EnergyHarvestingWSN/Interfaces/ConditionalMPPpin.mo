@@ -6,7 +6,7 @@ partial model ConditionalMPPpin
   parameter Boolean useExternalMPP = false annotation(
     Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.Voltage fixedMPP = 1 "Fixed V_mpp if useExternalMPP = false" annotation(
-    Dialog(enable=not useExternalPin));
+    Dialog(enable=not useExternalMPP));
   Modelica.Blocks.Interfaces.RealInput extMPP if useExternalMPP annotation(
     Placement(visible = true, transformation(origin = {-105, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
    
