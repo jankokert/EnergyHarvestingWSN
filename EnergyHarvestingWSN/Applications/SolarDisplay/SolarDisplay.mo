@@ -5,24 +5,25 @@ model SolarDisplay
   import SI = Modelica.SIunits;
   EnergyHarvestingWSN.Environment.SolarIrradiation solarIrradiation(colIrr = 10, fileName = "/Resources/USA_CA_San.Francisco.Intl.AP.724940_TMY3.txt") annotation(
     Placement(visible = true, transformation(extent = {{-90, -10}, {-70, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModuleFOCV solarModule(np = 1, A = 1E-2, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), ns = 36) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModuleFOCV solarModule(np = 1, A = 1E-2, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), ns = 36) annotation(
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   //PhotoVoltaics.Components.SimplePhotoVoltaics.SimpleModule solarModule(moduleData = moduleData, useConstantIrradiance = false) annotation(
   //  Placement(visible = true, transformation(origin = {-40, 0},extent = {{-10, 10}, {10, -10}}, rotation = -90)));
-  EnergyHarvestingWSN.PowerConverter.DCDC dcdc(TFB = 0.0001, fixedMPP = 5, kFB = 0.0001, param = EnergyHarvestingWSN.Records.DCDC.LT3652()) annotation(
+  EnergyHarvestingWSN.PowerConverter.DCDC dcdc(TFB = 0.0001, fixedMPP = 5, kFB = 0.0001, param = EnergyHarvestingWSN.Records.DCDC.LT3652(), useExternalMPP = false) annotation(
     Placement(transformation(extent = {{-10, 4}, {10, 24}})));
-  EnergyHarvestingWSN.Utilities.Ground ground1 annotation(
-    Placement(visible = true, transformation(origin = {-40, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.Utilities.Ground ground2 annotation(
-    Placement(visible = true, transformation(origin = {0, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter PhotoVoltaics.Records.SHARP_NU_S5_E3E moduleData annotation(
     Placement(visible = true, transformation(origin = {70, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Utilities.Ground ground3 annotation(
-    Placement(visible = true, transformation(origin = {50, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   EnergyStorages.Battery battery(SOCini = 0.5, cellParam = EnergyHarvestingWSN.Records.Batteries.WBLYP40()) annotation(
     Placement(visible = true, transformation(extent = {{40, -10}, {60, 10}}, rotation = 0)));
   Utilities.IdealDiode idealDiode(Goff = 0, Ron = 0) annotation(
     Placement(visible = true, transformation(origin = {30, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  EnergyHarvestingWSN.Utilities.Ground ground1 annotation(
+    Placement(visible = true, transformation(origin = {-40, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  EnergyHarvestingWSN.Utilities.Ground ground2 annotation(
+    Placement(visible = true, transformation(origin = {0, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  EnergyHarvestingWSN.Utilities.Ground ground3 annotation(
+    Placement(visible = true, transformation(origin = {50, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+
 
 equation
   connect(dcdc.n, ground2.p) annotation(

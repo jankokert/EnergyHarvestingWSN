@@ -6,7 +6,7 @@ model SolarDisplay2
   
   EnergyHarvestingWSN.Environment.SolarIrradiation solarIrradiation(colIrr = 10, fileName = "/Resources/USA_CA_San.Francisco.Intl.AP.724940_TMY3.txt") annotation(
     Placement(visible = true, transformation(extent = {{-90, -10}, {-70, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModuleFOCV solarModule(np = 1, A = 1E-2, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), ns = 36) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModuleFOCV solarModule(np = 1, A = 1E-2, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), ns = 36) annotation(
     Placement(visible = true, transformation(extent = {{-50, -10}, {-30, 10}}, rotation = 0)));
   EnergyHarvestingWSN.PowerConverter.DCDC dcdc(TFB = 1e-4, kFB = 1e-4, param = EnergyHarvestingWSN.Records.DCDC.LT3652(), useExternalMPP = true) annotation(
     Placement(transformation(extent = {{-10, 4}, {10, 24}})));
@@ -26,7 +26,7 @@ equation
     Line(points = {{-10, 20}, {-40, 20}, {-40, 10}}, color = {0, 0, 255}));
   connect(dcdc.pout, load.p) annotation(
     Line(points = {{10, 20}, {90, 20}, {90, 10}}, color = {0, 0, 255}));
-  connect(solarModule.vMPP, dcdc.mpp) annotation(
+  connect(solarModule.vMPP, dcdc.extMPP) annotation(
     Line(points = {{-32, 0}, {-20, 0}, {-20, 14}, {-10, 14}}, color = {0, 0, 127}));
   connect(solarModule.n, ground1.p) annotation(
     Line(points = {{-40, -10}, {-40, -20}}, color = {0, 0, 255}));

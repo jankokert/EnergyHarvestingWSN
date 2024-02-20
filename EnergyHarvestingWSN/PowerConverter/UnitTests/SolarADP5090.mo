@@ -6,7 +6,7 @@ model SolarADP5090
   
   EnergyHarvestingWSN.Environment.StandardDay stdDay(cloudChange = 15, cloudiness = 1.2, timeOffset(displayUnit = "s")) annotation(
     Placement(visible = true, transformation(extent = {{-80, -10}, {-60, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCellFOCV solarCell(A = 0.0003, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi()) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCellFOCV solarCell(A = 0.001, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi()) annotation(
     Placement(visible = true, transformation(extent = {{-40, -10}, {-20, 10}}, rotation = 0)));
   EnergyHarvestingWSN.PowerConverter.DCDC dcdc(TFB = 1E-4, Voutset = 4.2, fixedMPP = 0.5, kFB = 1E-4, param = EnergyHarvestingWSN.Records.DCDC.ADP5090(), useExternalMPP = true) annotation(
     Placement(transformation(extent = {{0, 4}, {20, 24}})));

@@ -12,9 +12,9 @@ block PowerManagement1
     Placement(visible = true, transformation(origin = {60, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerConverter.DCDC dcdc(TFB = 1E-5, fixedMPP = 0.5, kFB = 1E-5, param = EnergyHarvestingWSN.Records.DCDC.BQ25504(), useExternalMPP = true) annotation(
     Placement(visible = true, transformation(origin = {-50, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap2(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), vInit = 1.5) annotation(
+  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap2(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), Vinit = 1.5) annotation(
     Placement(visible = true, transformation(origin = {0, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap1(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), vInit = 1.5) annotation(
+  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap1(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), Vinit = 1.5) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 equation

@@ -4,7 +4,7 @@ model CellIVcurve
   extends Modelica.Icons.Example;
   
   parameter Real tscale = 10;
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell solarCell(A = 0.0001, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi()) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell solarCell(A = 0.0001, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi()) annotation(
     Placement(transformation(origin = {-20, 0}, extent = {{-10, -10}, {10, 10}})));
   EnergyHarvestingWSN.Utilities.Ground ground annotation(
     Placement(transformation(origin = {-20, -38}, extent = {{-10, -10}, {10, 10}})));

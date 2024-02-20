@@ -5,7 +5,7 @@ model PartialSolar
   extends EnergyHarvestingWSN.Interfaces.TwoPin;
   import SI = Modelica.Units.SI;
 
-  parameter EnergyHarvestingWSN.Records.SolarCells.template cellparam annotation(
+  parameter EnergyHarvestingWSN.Records.SolarCells.template param annotation(
     __Dymola_choicesAllMatching = true, Placement(transformation(extent = {{-100, 80}, {-80, 100}})));
   parameter SI.Area A(final displayUnit = "cm2") = 0.01 "Active area of one single cell (default = 1dm²)";
     
@@ -17,9 +17,6 @@ model PartialSolar
   SI.Power Pout "Electrical output power";
   SI.Efficiency eff;
   
-protected
-  SI.Irradiance onesun = 1000;
-
 equation
   iout = -p.i;
   Pout = Vout * iout;

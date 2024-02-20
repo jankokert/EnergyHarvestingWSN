@@ -7,7 +7,7 @@ model Main
     Placement(visible = true, transformation(origin = {10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   EnergyHarvestingWSN.Applications.DynamicDutyCycling.EnergyControl energyControl annotation(
     Placement(visible = true, transformation(origin = {10, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModule solarModule(A = 0.0001, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), np = 1, ns = 8) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModule solarModule(A = 0.0001, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), np = 1, ns = 8) annotation(
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
   EnergyHarvestingWSN.EnergyLoads.WSNloads wsnloads(useExternalPeriods = true, loadCase = APP.TwoSimpleLoads()) annotation(
     Placement(visible = true, transformation(origin = {70, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -38,7 +38,7 @@ equation
     Line(points = {{10, 10}, {10, 10}, {10, 10}, {10, 10}, {10, 40}, {10, 40}, {10, 40}, {10, 40}}, color = {255, 204, 51}, thickness = 0.5));
   annotation(
     experiment(StartTime = 0, StopTime = 300000, Tolerance = 1e-06, Interval = 600),
-    Diagram(graphics = {Text(origin = {-60, -40}, extent = {{-16, 6}, {24, -6}}, textString = "energy source", fontSize = 4), Text(origin = {66, -42}, extent = {{-16, 6}, {24, -6}}, textString = "energy sink
-(application)", fontSize = 4), Text(origin = {56, 54}, lineColor = {255, 0, 0}, extent = {{-16, 6}, {24, -6}}, textString = "control and state", fontSize = 4), Text(origin = {28, 30}, lineColor = {255, 170, 0}, extent = {{-16, 6}, {24, -6}}, textString = "energy
-info", fontSize = 4, horizontalAlignment = TextAlignment.Left)}, coordinateSystem(initialScale = 0.1)));
+    Diagram(graphics = {Text(origin = {-60, -40}, extent = {{-16, 6}, {24, -6}}, textString = "energy source"), Text(origin = {66, -42}, extent = {{-16, 6}, {24, -6}}, textString = "energy sink
+(application)"), Text(origin = {56, 54}, textColor = {255, 0, 0}, extent = {{-16, 6}, {24, -6}}, textString = "control and state"), Text(origin = {28, 30}, textColor = {255, 170, 0}, extent = {{-16, 6}, {24, -6}}, textString = "energy
+info", horizontalAlignment = TextAlignment.Left)}, coordinateSystem(initialScale = 0.1)));
 end Main;

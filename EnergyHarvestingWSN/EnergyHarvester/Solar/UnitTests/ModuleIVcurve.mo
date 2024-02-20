@@ -4,7 +4,7 @@ model ModuleIVcurve
   extends Modelica.Icons.Example;
 
   parameter Real tscale = 0.1;
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModule solarModule(A = 0.0001, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), np = 1, ns = 36) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarModule solarModule(A = 0.0001, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi(), np = 1, ns = 36) annotation(
     Placement(transformation(origin = {-20, 0}, extent = {{-10, -10}, {10, 10}})));
   EnergyHarvestingWSN.Utilities.Ground ground annotation(
     Placement(transformation(origin = {-20, -36}, extent = {{-10, -10}, {10, 10}})));

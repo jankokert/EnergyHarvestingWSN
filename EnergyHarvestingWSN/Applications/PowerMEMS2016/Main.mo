@@ -2,7 +2,7 @@ within EnergyHarvestingWSN.Applications.PowerMEMS2016;
 model Main
   extends Modelica.Icons.Example;
   import SI = Modelica.Units.SI;
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCellFOCV solarCell(A = 6.66e-05, Jsc = 0.3, cellparam = EnergyHarvestingWSN.Records.SolarCells.StandardSi()) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCellFOCV solarCell(A = 6.66e-05, param = EnergyHarvestingWSN.Records.SolarCells.StandardSi()) annotation(
     Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   EnergyHarvestingWSN.Environment.StandardDay standardDay(timeOffset = 21600) annotation(
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

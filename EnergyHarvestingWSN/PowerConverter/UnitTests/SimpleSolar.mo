@@ -3,7 +3,7 @@ model SimpleSolar
   extends Modelica.Icons.Example;
   import SI = Modelica.Units.SI;
 
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell solarCell(cellparam=EnergyHarvestingWSN.Records.SolarCells.StandardSi(), A = 0.001) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell solarCell(param=EnergyHarvestingWSN.Records.SolarCells.StandardSi(), A = 0.001) annotation(
     Placement(visible = true, transformation(extent = {{-30, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.Constant integerConstant1(k=1000) annotation(
     Placement(visible = true, transformation(extent = {{-56, -6}, {-44, 6}}, rotation = 0)));

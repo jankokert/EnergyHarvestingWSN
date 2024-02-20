@@ -3,7 +3,7 @@ within EnergyHarvestingWSN.Applications.DynamicDutyCycling;
 model PowerManagement
   extends EnergyHarvestingWSN.Interfaces.PartialPowerManagement;
   import SI = Modelica.SIunits;
-  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap1(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), vInit=3)  annotation(
+  EnergyHarvestingWSN.EnergyStorages.SuperCap superCap1(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), Vinit=3)  annotation(
     Placement(visible = true, transformation(origin = {0, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   EnergyHarvestingWSN.Icons.RoundSensor roundSensor(symbol = "P")  annotation(
     Placement(visible = true, transformation(origin = {-70, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

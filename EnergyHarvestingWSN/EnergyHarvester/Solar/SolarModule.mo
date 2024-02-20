@@ -2,11 +2,11 @@ within EnergyHarvestingWSN.EnergyHarvester.Solar;
 
 model SolarModule
   extends EnergyHarvestingWSN.Interfaces.PartialSolar;
-  import SI = Modelica.Units.SI;//SI.Efficiency neff;
+  import SI = Modelica.Units.SI;
 
   parameter Integer ns(min = 1) = 1 "Number of serial connected cells";
   parameter Integer np(min = 1) = 1 "Number of parallel connected cells";
-  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell cell(final cellparam = cellparam, final A = A) annotation(
+  EnergyHarvestingWSN.EnergyHarvester.Solar.SolarCell cell(final param = param, final A = A) annotation(
     Placement(visible = true, transformation(extent = {{-70, -10}, {-50, 10}}, rotation = 0)));
   EnergyHarvestingWSN.Utilities.ScaleVI scaleVI(k_V = ns, k_I = np) annotation(
     Placement(transformation(extent = {{-40, -10}, {-20, 10}})));
