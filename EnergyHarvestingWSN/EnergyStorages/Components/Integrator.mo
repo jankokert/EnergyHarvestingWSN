@@ -7,7 +7,7 @@ model Integrator
   import SI = Modelica.Units.SI;
   Modelica.Blocks.Interfaces.RealInput SoC annotation(
     Placement(visible = true, transformation(origin = {-100, 110}, extent = {{-20, -20}, {20, 20}}, rotation = 270), iconTransformation(origin = {-120, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealOutput Q(unit = "C") annotation(
+  Modelica.Blocks.Interfaces.RealOutput Q(final quantity = "ElectricCharge", final unit = "C") annotation(
     Placement(visible = true, transformation(origin = {0, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 90), iconTransformation(origin = {0, -110}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter Real SOCini "Initial state of charge" annotation(
     Dialog(group = "Initialization"));

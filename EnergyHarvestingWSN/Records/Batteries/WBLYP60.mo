@@ -10,10 +10,7 @@ record WBLYP60 "WB-LYP60 - 60 Ah Winston battery"
     Av = 0.03,
     Bv = 4.6e-005,
     // self dis
-    SDan = 0.3,
     kageQ = 0.0055,
     nage = 1000.0
-    // Rd
-    // Cd
   );
 end WBLYP60;

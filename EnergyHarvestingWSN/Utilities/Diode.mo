@@ -27,5 +27,5 @@ equation
     Line(points = {{-96, 0}, {40, 0}}, color = {0, 0, 255}),
     Line(points = {{40, 0}, {96, 0}}, color = {0, 0, 255}),
     Line(points = {{30, 40}, {30, -40}}, color = {0, 0, 255}),
-    Text(lineColor = {0, 0, 255}, extent = {{-156, 101}, {144, 61}}, textString = "%name")}));
+    Text(textColor = {0, 0, 255}, extent = {{-156, 90}, {144, 50}}, textString = "%name")}));
 end Diode;

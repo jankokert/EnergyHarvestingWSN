@@ -12,9 +12,6 @@ record WBLYP40 "WB-LYP40 - 40 Ah Winston battery"
     // self dis
     RselfDis = 2087.4894,    
     kageQ = 0.0055,
-    nage = 1000.0,
-    // RC
-    Rd = 0.02,
-    Cd = 100.0
+    nage = 1000.0
   );
 end WBLYP40;

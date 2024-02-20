@@ -4,8 +4,6 @@ record CR2032_Panasonic "CR2032 button cell with 250 mAh"
   extends EnergyHarvestingWSN.Records.Batteries.template(
     C0 = from_Ah(0.25),
     R0 = 0.1,
-    Rd = 0.02,  // only for RC-model
-    Cd = 1.0,   // only for RC-model
     E0 = 3.0,
     Elin = 0.04,
     Epol = 0.037895,
