@@ -4,16 +4,20 @@ model Diode "Simple diode with exponential behavior and with non-ideality factor
   import SI = Modelica.Units.SI;
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
   import Modelica.Constants.q "Electron charge, [As]";
+  import EnergyHarvestingWSN.Utilities.Functions.exlin;
   
   parameter SI.Current Ids = 1.e-6 "Saturation current";
   parameter Real nideal = 1 "Non-ideality factor";
   parameter SI.Temperature T = 298;
   
+  final constant SI.Voltage Vmax = 0.8 "Maximum expected voltage at diode to operate in exponential mode";
   SI.Voltage Vt "Temperature voltage";
 
+        
 equation
   Vt = k*T/q;
-  i = Ids * (exp(v / (Vt * nideal)) - 1);
+  // exlin is used to avoid OMbug: "residualFunc158: Iteration variable xloc[0] is nan."
+  i = Ids * (exlin(v/(Vt * nideal), Vmax/(Vt * nideal)) - 1);
   
   annotation(
     Documentation(info = "<html>

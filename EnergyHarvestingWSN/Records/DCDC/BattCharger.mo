@@ -4,6 +4,5 @@ record BattCharger "Battery Charger with 0.5A"
     Vstart = 5,
     Vmin = 4,
     Vsetmax = 1.38,
-    Isetmax = 0.5,
-    Vtrickle = 4);
+    Isetmax = 0.5);
 end BattCharger;
