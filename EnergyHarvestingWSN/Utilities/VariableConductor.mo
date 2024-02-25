@@ -5,7 +5,7 @@ model VariableConductor
 
   Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation(
       Placement(transformation(origin = {0,110}, extent = {{-20,-20},{20,20}}, rotation = 270)));
-  Modelica.Blocks.Interfaces.RealOutput pin(unit="P") annotation(
+  Modelica.Blocks.Interfaces.RealOutput pin(final quantity = "Power", final unit="W") annotation(
     Placement(visible = true, transformation(extent = {{100, 70}, {120, 90}}, rotation = 0), iconTransformation(extent = {{100, 70}, {120, 90}}, rotation = 0)));
 equation
   i = max(0, G)*v;

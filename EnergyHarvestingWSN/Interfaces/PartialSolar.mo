@@ -6,7 +6,7 @@ model PartialSolar
   import SI = Modelica.Units.SI;
 
   parameter EnergyHarvestingWSN.Records.SolarCells.template param annotation(
-    __Dymola_choicesAllMatching = true, Placement(transformation(extent = {{-100, 80}, {-80, 100}})));
+    choicesAllMatching = true, Placement(transformation(extent = {{-100, 80}, {-80, 100}})));
   parameter SI.Area A(final displayUnit = "cm2") = 0.01 "Active area of one single cell (default = 1dm²)";
     
   Modelica.Blocks.Interfaces.RealInput irradiance(final quantity = "Irradiance", final unit = "W/m2") "Input irradiance" annotation(
