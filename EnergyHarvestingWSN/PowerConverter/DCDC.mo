@@ -18,7 +18,7 @@ model DCDC
   inner SI.Voltage Vset;
   inner SI.Current Iset;
   
-  EnergyHarvestingWSN.Utilities.VariableConductor Gin annotation(
+  EnergyHarvestingWSN.Utilities.VariableConductorPlossOut Gin(Gmax = param.Gmax)  annotation(
     Placement(visible = true, transformation(origin = {-60, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 270)));
   Modelica.Electrical.Analog.Sources.SignalCurrent Iout_src(i(start = 0)) annotation(
     Placement(visible = true, transformation(origin = {70, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
@@ -64,7 +64,7 @@ equation
     Line(points = {{41, -50}, {58, -50}}, color = {0, 0, 127}));
   connect(Iout_src.p, n) annotation(
     Line(points = {{70, -60}, {70, -60}, {70, -80}, {0, -80}, {0, -100}, {0, -100}}, color = {0, 0, 255}));
-  connect(Gin.pin, efficiency.pin) annotation(
+  connect(Gin.Ploss, efficiency.pin) annotation(
     Line(points = {{-52, -41}, {-52, -50}, {-32, -50}}, color = {0, 0, 127}));
   connect(pout, Iout_src.n) annotation(
     Line(points = {{100, 60}, {70, 60}, {70, -40}, {70, -40}}, color = {0, 0, 255}));
