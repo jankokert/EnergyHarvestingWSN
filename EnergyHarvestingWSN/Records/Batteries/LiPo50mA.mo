@@ -7,6 +7,7 @@ record LiPo50mA "LiPo with 50 mAh (Vmax=4.2V)"
     Elin = 0.0,
     Epol = 0.05,
     Av = 0.5,
-    Bv = 0.2
+    Bv = 0.2,
+    ksdyr = 0.93 // approx. 20% per month
   );    
 end LiPo50mA;

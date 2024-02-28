@@ -8,8 +8,6 @@ record LP053048 "BiPower 760 mAh Li-Ion rechargable battery"
     Epol = 0.02187,
     Av = 0.405,
     Bv = 0.002193,
-    // self dis
-    kageQ = 0.03,
-    nage = 100.0
+    ksdyr = 0.45  // approx. 5% per month
   );
 end LP053048;

@@ -8,8 +8,7 @@ record eneloopAA "eneloop NiMH AA cell with 2.0 Ah, 70% remaining charge after 5
     Elin = 0.2,
     Epol = 0.012503,
     Av = 0.175,
-    Bv = 0.001667
-    //kageQ = 0.4,
-    //nage = 200.0
+    Bv = 0.001667,
+    ksdyr = 0.035 // approx. 30% after 10 years
   );
 end eneloopAA;

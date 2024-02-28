@@ -9,8 +9,6 @@ record WBLYP60 "WB-LYP60 - 60 Ah Winston battery"
     Epol = 0.007369,
     Av = 0.03,
     Bv = 4.6e-005,
-    // self dis
-    kageQ = 0.0055,
-    nage = 1000.0
+    ksdyr = 0.10
   );
 end WBLYP60;

@@ -13,9 +13,7 @@ record template
   parameter Real Av = 0.1 "Exp. zone amplitude";
   parameter SI.Time Bv = 1 "Exp. zone exponent constant";
 
-  parameter SI.Resistance RselfDis = 1E6 "Self discharge resistor";
-  parameter Real kageQ = 0 "Capacity decrease per 100 cycles";
-  parameter Real nage = 0 "Cycle count at which aging starts";
+  parameter SI.Frequency ksdyr(displayUnit="yr-1") = 0 "Annual self discharge rate";
 
 end template;
 
