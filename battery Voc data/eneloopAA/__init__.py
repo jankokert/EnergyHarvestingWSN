@@ -5,7 +5,7 @@ record = namedtuple("record", "Vout Qout Iout")
 
 ### eneloop discharge
 data = genfromtxt('./eneloopAA/Discharge_0A4.csv', delimiter=',');
-eneloopAA_0A2 = record(
+eneloopAA_0A4 = record(
 	Qout = data[:,0],
 	Vout = data[:,1],
 	Iout = 0.4,
