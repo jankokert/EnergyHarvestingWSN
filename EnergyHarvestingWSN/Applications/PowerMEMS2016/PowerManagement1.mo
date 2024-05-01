@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.Applications.PowerMEMS2016;
 
 block PowerManagement1
-  extends EnergyHarvestingWSN.Interfaces.PartialPowerManagement;
+  extends EnergyHarvestingWSN.Components.PartialPowerManagement;
   import SI = Modelica.Units.SI;
   
   // this can stay here, as there is a bug in OMEdit to connect the connector if class is extended

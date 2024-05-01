@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.Applications.DynamicDutyCycling;
 
 model PowerManagement
-  extends EnergyHarvestingWSN.Interfaces.PartialPowerManagement;
+  extends EnergyHarvestingWSN.Components.PartialPowerManagement;
   import SI = Modelica.SIunits;
   EnergyHarvestingWSN.EnergyStorages.SuperCap superCap1(capParam = EnergyHarvestingWSN.Records.SuperCaps.YEC_25F(), Vinit=3)  annotation(
     Placement(visible = true, transformation(origin = {0, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
