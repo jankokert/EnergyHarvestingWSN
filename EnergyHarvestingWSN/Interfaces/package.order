@@ -10,5 +10,4 @@ LoadInfo
 ConditionalPeriodPort
 TimePort
 ConditionalMPPpin
-PartialPowerManagement
 PartialSolar
