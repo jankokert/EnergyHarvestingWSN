@@ -3,7 +3,7 @@ model EnergyControl
   extends EnergyHarvestingWSN.Components.PartialEnergyControl;
   import SI = Modelica.Units.SI;
 
-  // RAPU: Recommended Average Power Usage
+// RAPU: Recommended Average Power Usage
   // Calculate the RAPU value every RAPUPeriod seconds
   inner parameter SI.Time RAPUPeriod = 3600;
 
@@ -32,7 +32,7 @@ initial algorithm
   history.power := zeros(history.length);
 
 algorithm
-  // Measure how often the periods are changed
+// Measure how often the periods are changed
   when {change(calcPeriods.idealPeriods[1]), change(calcPeriods.idealPeriods[2])} then
     periodChangeCount := periodChangeCount + 1;
     periodChangeVariation := periodChangeVariation + (calcPeriods.idealPeriods[1]-pre(calcPeriods.idealPeriods[1]))^2 + (calcPeriods.idealPeriods[2]-pre(calcPeriods.idealPeriods[2]))^2;
@@ -55,9 +55,9 @@ annotation(
   Line(points = {{100, 3}, {80, 3}, {80, 30}, {0, 30}, {0, 10}}, color = {255, 0, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4),
   Line(points = {{50, -3}, {90, -3}}, color = {255, 0, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4),
   Line(points = {{0, -30}, {0, -30}, {0, -10}}, color = {255, 170, 0}, arrow = {Arrow.None, Arrow.Open}, arrowSize = 4),
-  Text(origin = {-50, -35}, lineColor = {255, 170, 0}, extent = {{-24, 5}, {16, -5}}, textString = "input power", fontSize = 4),
-  Text(origin = {24, -35}, lineColor = {255, 170, 0}, extent = {{-26, 17}, {-6, 7}}, textString = "SoC", fontSize = 4),
-  Text(origin = {42, 36}, lineColor = {255, 0, 0}, extent = {{-38, 6}, {22, -6}}, textString = "interrogation: current state", fontSize = 4),
-  Text(origin = {65, -12}, lineColor = {255, 0, 0}, extent = {{-11, 8}, {19, -8}}, textString = "response:\ncontrol", fontSize = 4, horizontalAlignment = TextAlignment.Left)}));
+  Text(origin = {-50, -35}, textColor = {255, 170, 0}, extent = {{-24, 5}, {16, -5}}, textString = "input power", fontSize = 12),
+  Text(origin = {24, -35}, textColor = {255, 170, 0}, extent = {{-26, 17}, {-6, 7}}, textString = "SoC", fontSize = 12),
+  Text(origin = {42, 36}, textColor = {255, 0, 0}, extent = {{-38, 6}, {22, -6}}, textString = "interrogation: current state", fontSize = 12),
+  Text(origin = {65, -8}, textColor = {255, 0, 0}, extent = {{-11, 4}, {19, -4}}, textString = "control", fontSize = 12, horizontalAlignment = TextAlignment.Left)}));
 
 end EnergyControl;

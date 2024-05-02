@@ -8,7 +8,7 @@ class Storage
 
   function getAverage
     input Rec history;
-    input Real elements;
+    input Integer elements;
     output Real avg;
 
   algorithm
