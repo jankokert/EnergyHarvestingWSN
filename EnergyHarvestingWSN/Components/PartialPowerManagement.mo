@@ -11,6 +11,8 @@ initial equation
   energyInfo.EstoreDiff = 0;
   energyInfo.Econs = 0;
   energyInfo.Eharv = 0;
+equation
+  der(energyInfo.EstoreTot) = der(energyInfo.EstoreDiff);
   
   annotation(
     Icon(coordinateSystem(preserveAspectRatio = false, initialScale = 0.1), graphics = {Text(origin = {47, -64}, extent = {{-45, 30}, {41, -26}}, textString = "µPM")}),

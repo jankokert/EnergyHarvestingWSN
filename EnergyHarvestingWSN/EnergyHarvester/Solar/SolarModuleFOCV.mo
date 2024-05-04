@@ -22,5 +22,5 @@ equation
     Line(points = {{-110, 0}, {-96, 0}, {-96, -12}, {-35, -12}}, color = {0, 0, 127}));
 
 annotation(
-    Diagram(graphics = {Line(origin = {-30, 0}, points = {{18, 0}, {0, 0}, {0, -6}}, color = {0, 0, 127})}, coordinateSystem(extent = {{-120, 120}, {120, -120}})));
+    Diagram(graphics = {Line(origin = {-30, 0}, points = {{18, 0}, {0, 0}, {0, -6}}, color = {0, 0, 127})}, coordinateSystem(extent = {{-100, 100}, {100, -100}})));
 end SolarModuleFOCV;
