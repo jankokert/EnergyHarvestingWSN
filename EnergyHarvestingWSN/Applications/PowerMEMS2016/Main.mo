@@ -15,7 +15,7 @@ model Main
 
   EnergyLoads.PeriodicCurrent dummyLoad(fixedPeriod = 30, offCurrent = 0.000033, onCurrent = 0.033, onTime = 0.3, useExternalPeriod = false, vcalc = 3.3) annotation(
     Placement(visible = true, transformation(origin = {60, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerManagement1 powerManagement annotation(
+  PowerManagement1 powerManagement(useExternalMPP = true)  annotation(
     Placement(visible = true, transformation(origin = {0, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 equation
@@ -32,8 +32,8 @@ equation
     Line(points = {{0, 0}, {0, 0}, {0, -20}, {0, -20}}, color = {0, 0, 255}));
   connect(dummyLoad.n, ground3.p) annotation(
     Line(points = {{60, -10}, {60, -10}, {60, -20}, {60, -20}}, color = {0, 0, 255}));
-  connect(solarCell.vMPP, powerManagement.energyInfo.Vmpp) annotation(
-    Line(points = {{-32, 0}, {-28, 0}, {-28, 28}, {0, 28}, {0, 20}}, color = {255, 170, 0}));
+  connect(solarCell.vMPP, powerManagement.extMPP) annotation(
+    Line(points = {{-32, 0}, {-22, 0}, {-22, 10}, {-10, 10}}, color = {0, 0, 127}));
   annotation(
     experiment(StartTime = 0, StopTime = 86400, Tolerance = 1e-06, Interval = 100),
     Diagram);
