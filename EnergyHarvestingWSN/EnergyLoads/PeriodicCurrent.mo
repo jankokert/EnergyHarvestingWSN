@@ -14,6 +14,8 @@ model PeriodicCurrent
   SI.Current ireal;
   SI.Conductance G;
   SI.Energy Econs;
+  Modelica.Blocks.Interfaces.BooleanOutput isOn annotation(
+    Placement(transformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}})));
 
 protected
   discrete SI.Time nextOn, T0;
@@ -36,6 +38,8 @@ algorithm
   end when;
 
 equation
+  isOn = (time < T0 + onTime);
+
   ireal = 
     if time < T0 then
       offCurrent
