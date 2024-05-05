@@ -10,6 +10,7 @@ model DCDC
   parameter SI.Voltage Voutset(start = 0) "Settable output voltage";
   parameter SI.Current Ioutset(start = 0) "Settable output current";
   parameter EnergyHarvestingWSN.Records.DCDC.template param annotation(
+    choicesAllMatching = true,
     Placement(visible = true, transformation(origin = {-21, 57}, extent = {{-9, -9}, {9, 9}}, rotation = 0)));
   
   SI.Power PWRout, PWRin;

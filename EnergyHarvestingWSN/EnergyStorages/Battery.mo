@@ -6,7 +6,8 @@ model Battery "Battery cell model with a static internal impedance and self disc
   
   import SI = Modelica.Units.SI;
   parameter EnergyHarvestingWSN.Records.Batteries.template cellParam annotation(
-    choicesAllMatching = true, Placement(visible = true, transformation(origin = {-80, 84}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
+    choicesAllMatching = true,
+    Placement(visible = true, transformation(origin = {-80, 84}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
   parameter Real SOCini = 1 "Initial state of charge" annotation(
     Dialog(group = "Initialization"));
 
