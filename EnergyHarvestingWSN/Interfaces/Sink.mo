@@ -1,6 +1,6 @@
 within EnergyHarvestingWSN.Interfaces;
 partial model Sink
-  "Electrical sink with current iin definition"
+  "Electrical sink with current Iin definition"
   extends EnergyHarvestingWSN.Interfaces.TwoPin;
   import SI = Modelica.Units.SI;
     

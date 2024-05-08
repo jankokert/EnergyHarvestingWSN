@@ -10,6 +10,7 @@ model SuperCap "Ideal linear electrical capacitor"
     Placement(transformation(extent = {{-100.0, 80.0}, {-80.0, 100.0}}, origin = {0.0, 0.0}, rotation = 0), visible = true));
   parameter SI.Voltage Vinit = 1;
   
+  SI.Current Icharge;
   SI.Energy Ei "Energy in Immediate branch";
   SI.Energy Ed "Energy in Delayed branch";
   SI.Energy El "Energy in Long-term branch";
@@ -28,7 +29,7 @@ model SuperCap "Ideal linear electrical capacitor"
   EnergyHarvestingWSN.Utilities.VarCap Ci(C0 = capParam.Ci0, Cv = capParam.Civ, Vout(start = Vinit, fixed = true)) annotation(
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-40, -10})));
   Modelica.Electrical.Analog.Basic.Capacitor Cd(C = capParam.Cd, v(start = Vinit, fixed = true)) annotation(
-    Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {10, -10})));
+    Placement(transformation(origin = {10, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 270)));
   Modelica.Electrical.Analog.Basic.Capacitor Cl(C = capParam.Cl, v(start = Vinit, fixed = true)) annotation(
     Placement(visible = true, transformation(origin = {50, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 270)));
 
@@ -36,6 +37,7 @@ equation
   Ei = 1/2 * Ci.C0 * Ci.Vout^2 + 1/3 * Ci.Cv * Ci.Vout^3;
   Ed = 1/2 * Cd.C * Cd.v^2;
   El = 1/2 * Cl.C * Cl.v^2;
+  Icharge = p.i;
   Etot = Ei + Ed + El;
   ti = Ci.C * Ri.R;
   td = Cd.C * Rd.R;
@@ -53,7 +55,6 @@ equation
     Line(points = {{80, 10}, {80, 10}, {80, 80}, {0, 80}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
   connect(Rleak.n, n) annotation(
     Line(points = {{80, -10}, {80, -60}, {0, -60}, {0, -100}}, color = {0, 0, 255}));
- 
   connect(Cl.n, n) annotation(
     Line(points = {{50, -38}, {50, -60}, {0, -60}, {0, -100}}, color = {0, 0, 255}));
   connect(Ci.n, n) annotation(
@@ -64,7 +65,6 @@ equation
     Line(points = {{-40, 0}, {-40, 48}}, color = {0, 0, 255}));
   connect(Ri.p, p) annotation(
     Line(points = {{-40, 68}, {-40, 80}, {0, 80}, {0, 100}}, color = {0, 0, 255}));
-
   annotation(
     Documentation(info = "<html>
 <p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive or zero.</p>
