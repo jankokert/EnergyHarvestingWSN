@@ -39,9 +39,9 @@ algorithm
   end when;
 
 equation
-  soc = energyInfo.EstoreTot / energyInfo.Ecapacity;
-  powerIn = energyInfo.Pin;
-  capacity = energyInfo.Ecapacity;
+  soc = energyInfo.EstoreAbs / energyInfo.EstoreMax;
+  powerIn = energyInfo.Pharv;
+  capacity = 1;
   
   connect(calcPeriods.idealPeriods, directComm.idealPeriods) annotation(
     Line(points = {{11, 0}, {28, 0}}, color = {255, 127, 0}, thickness = 0.5));
