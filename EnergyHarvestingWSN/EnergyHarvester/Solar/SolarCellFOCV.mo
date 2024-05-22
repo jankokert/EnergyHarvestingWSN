@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.EnergyHarvester.Solar;
 
 model SolarCellFOCV
-  extends EnergyHarvestingWSN.Interfaces.PartialSolar;
+  extends EnergyHarvestingWSN.Components.PartialSolar;
   import SI = Modelica.Units.SI;
 
   parameter Real k_FOCV = 0.8 "MPP fraction of the open-circuit voltage";

@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.EnergyHarvester.Solar;
 
 model SolarCell
-  extends EnergyHarvestingWSN.Interfaces.PartialSolar;
+  extends EnergyHarvestingWSN.Components.PartialSolar;
   import SI = Modelica.Units.SI;
   parameter SI.Temperature T = 298;
 

@@ -1,4 +1,4 @@
-within EnergyHarvestingWSN.Interfaces;
+within EnergyHarvestingWSN.Components;
 
 model PartialSolar
   extends EnergyHarvestingWSN.Icons.SolarCell;

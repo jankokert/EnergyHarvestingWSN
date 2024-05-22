@@ -1,7 +1,7 @@
 within EnergyHarvestingWSN.EnergyHarvester.Solar;
 
 model SolarModule
-  extends EnergyHarvestingWSN.Interfaces.PartialSolar;
+  extends EnergyHarvestingWSN.Components.PartialSolar;
   import SI = Modelica.Units.SI;
 
   parameter Integer ns(min = 1) = 1 "Number of serial connected cells";
