@@ -20,12 +20,16 @@ equation
     Line(points = {{-89, 0}, {-100, 0}}, color = {0, 0, 127}));
   connect(cell.n, stack.n) annotation(
     Line(points = {{-80, -10}, {-80, -20}, {-50, -20}, {-50, 4}}, color = {0, 0, 255}));
-  connect(stack.n, n) annotation(
-    Line(points = {{-50, 4}, {-50, -20}, {0, -20}, {0, -100}}, color = {0, 0, 255}));
-  connect(p, stack.pout) annotation(
-    Line(points = {{0, 100}, {0, 20}, {-40, 20}}, color = {0, 0, 255}));
   connect(stack.pin, cell.p) annotation(
     Line(points = {{-60, 20}, {-80, 20}, {-80, 10}}, color = {0, 0, 255}));
+  connect(p, P) annotation(
+    Line(points = {{0, 100}, {0, 20}, {-4, 20}}, color = {0, 0, 255}));
+  connect(stack.pout, P) annotation(
+    Line(points = {{-40, 20}, {-4, 20}}, color = {0, 0, 255}));
+  connect(stack.n, N) annotation(
+    Line(points = {{-50, 4}, {-50, -20}, {-4, -20}}, color = {0, 0, 255}));
+  connect(n, N) annotation(
+    Line(points = {{0, -100}, {0, -20}, {-4, -20}}, color = {0, 0, 255}));
   annotation(
     Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}})),
     Icon(coordinateSystem(preserveAspectRatio = false, initialScale = 0.1), graphics = {Text(lineColor = {255, 170, 0}, fillColor = {98, 118, 159}, fillPattern = FillPattern.Forward, extent = {{-80, 22}, {80, -22}}, textString = "%ns x %np")}));
